@@ -27,7 +27,7 @@ public class MoneyTransferTest {
         dashboardPage = verificationPage.validVerify(verificationCode);
         firstCardInfo = DataHelper.getFirstCardInfo();
         secondCardInfo =DataHelper.getSecondCardInfo();
-        firstCardBalance = dashboardPage.getCardBalance(getMaskedNumber(firstCardInfo.getCardNumber()));
+        firstCardBalance = dashboardPage.getCardBalance(DataHelper.getMaskedNumber(firstCardInfo.getCardNumber()));
         secondCardBalance = dashboardPage.getCardBalace(1);
     }
 
@@ -55,6 +55,6 @@ public class MoneyTransferTest {
         var actualBalanceFirstCard = dashboardPage.getCardBalance(getMaskedNumber(firstCardInfo.getCardNumber()));
         var actualBalanceSecondCard = dashboardPage.getCardBalance(getMaskedNumber(secondCardInfo.getCardNumber()));
         assertAll(() -> assertEquals(firstCardBalance, actualBalanceFirstCard),
-                () -> assertEquals(secondCardBalance, actualBalanceSecondCard);
+                () -> assertEquals(secondCardBalance, actualBalanceSecondCard));
     }
 }
